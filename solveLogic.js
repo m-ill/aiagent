@@ -61,11 +61,7 @@ const prompts = {
         '      #### INSTRUCTION',
         '      - 삭제할 디렉토리의 경로를 제공해주세요',
         '   ',
-        // '   ### cdnjs_finder',
-        // '   - CDN 라이브러리 URL을 찾습니다.',
-        // '      #### INSTRUCTION',
-        // '      - 패키지 이름을 제공해주세요',
-        // '   ',
+
         useDocker ? '   ### apt_install' : '[REMOVE]',
         useDocker ? '   - apt 패키지를 설치합니다.' : '[REMOVE]',
         useDocker ? '      #### INSTRUCTION' : '[REMOVE]',
