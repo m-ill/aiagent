@@ -85,21 +85,21 @@
 
 ```bash
 # 필수 설정
-aiexeauto config claudeApiKey "sk-ant-api..."    # Claude API 키 설정
+aiagent config claudeApiKey "sk-ant-api..."    # Claude API 키 설정
 
 # AI 모델 설정
-aiexeauto config model "claude-3-5-haiku-20241022"  # 빠르고 경제적
+aiagent config model "claude-3-5-haiku-20241022"  # 빠르고 경제적
 # 또는
-aiexeauto config model "claude-3-5-sonnet-20241022" # 더 정교한 작업 수행
+aiagent config model "claude-3-5-sonnet-20241022" # 더 정교한 작업 수행
 
 # 실행 환경 설정
-aiexeauto config maxIterations 0                 # 반복 횟수 (0=무제한)
-aiexeauto config overwriteOutputDir false        # 출력 디렉토리 덮어쓰기 여부
+aiagent config maxIterations 0                 # 반복 횟수 (0=무제한)
+aiagent config overwriteOutputDir false        # 출력 디렉토리 덮어쓰기 여부
 
 # Docker 설정 (선택사항)
-aiexeauto config useDocker true                  # Docker 사용 여부
-aiexeauto config dockerImage "my-node-ubuntu"    # Docker 이미지 이름
-aiexeauto config dockerWorkDir "/home/ubuntu/work" # Docker 작업 디렉토리
+aiagent config useDocker true                  # Docker 사용 여부
+aiagent config dockerImage "my-node-ubuntu"    # Docker 이미지 이름
+aiagent config dockerWorkDir "/home/ubuntu/work" # Docker 작업 디렉토리
 ```
 
 
