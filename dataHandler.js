@@ -20,7 +20,7 @@ export async function validateAndCreatePaths(dataSourcePath) {
 export async function serializeFolder(folderPath) {
     const CHUNK_SIZE = 1024 * 1024;
     const chunks = [];
-    const tempTarPath = getAppPath('AIEXE-data-handling-tmpfile.tar');
+    const tempTarPath = getAppPath('AIAGENT-data-handling-tmpfile.tar');
     try {
         await tar.create({ file: tempTarPath, cwd: path.dirname(folderPath) }, [path.basename(folderPath)]);
         const tarContent = await fs.promises.readFile(tempTarPath);
@@ -93,7 +93,7 @@ export async function importData(page, dataSourcePath) {
                 const path = require('path');
                 (async()=>{
                     const items = await fs.promises.readdir('${folderName}');
-                    const removeList = ['node_modules', '.git', '.vscode', 'AIEXE-data-handling-tmpfile.tar', 'package-lock.json', 'package.json'];
+                    const removeList = ['node_modules', '.git', '.vscode', 'AIAGENT-data-handling-tmpfile.tar', 'package-lock.json', 'package.json'];
                     for (const item of removeList) {
                         const fullPath = '${folderName}/'+item;
                         if (fs.existsSync(fullPath)) { await fs.promises.rm(fullPath, { recursive: true, force: true }); }
@@ -139,7 +139,7 @@ export async function exportData(page, dataSourcePath, dataOutputPath) {
             async function serializeFolder(folderPath) {
                 const CHUNK_SIZE = 1024 * 1024 * 10;
                 const chunks = [];
-                const tempTarPath = 'AIEXE-data-handling-tmpfile.tar';
+                const tempTarPath = 'AIAGENT-data-handling-tmpfile.tar';
                 try {
                     await tar.create({ file: tempTarPath, cwd: path.dirname(folderPath) }, [path.basename(folderPath)]);
                     const tarContent = await fs.promises.readFile(tempTarPath);
@@ -162,9 +162,9 @@ export async function exportData(page, dataSourcePath, dataOutputPath) {
                     'node_modules',
                     '.git',
                     '.vscode',
-                    'AIEXE-data-handling-tmpfile.tar',
-                    'AIEXE-data-handling-exportData.js',
-                    'AIEXE-data-handling-operation.js',
+                    'AIAGENT-data-handling-tmpfile.tar',
+                    'AIAGENT-data-handling-exportData.js',
+                    'AIAGENT-data-handling-operation.js',
                     'package-lock.json',
                     'package.json'
                 ];
@@ -187,8 +187,8 @@ export async function exportData(page, dataSourcePath, dataOutputPath) {
                 process.exit(0);
             })();
             `;
-            await window._electrons.mount('AIEXE-data-handling-exportData.js', exportData);
-            const list = await window._electrons.spawn('node', ['AIEXE-data-handling-exportData.js']);
+            await window._electrons.mount('AIAGENT-data-handling-exportData.js', exportData);
+            const list = await window._electrons.spawn('node', ['AIAGENT-data-handling-exportData.js']);
             return list;
         }, dataSourceName, dataOutputName);
         const chunkedNames = JSON.parse(executeResult.output);
@@ -200,7 +200,7 @@ export async function exportData(page, dataSourcePath, dataOutputPath) {
             fileList.push(path.join(dataOutputPath, chunkName));
         }
         // base64 청크들을 하나의 tar 파일로 결합
-        const tmpTarFile = 'AIEXE-data-handling-tmpfile.tar';
+        const tmpTarFile = 'AIAGENT-data-handling-tmpfile.tar';
         fs.writeFileSync(path.join(dataOutputPath, tmpTarFile), '');
         for (const name of fileList) {
             const chunk = fs.readFileSync(name, 'utf8');
