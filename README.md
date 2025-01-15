@@ -29,7 +29,7 @@
 
    **macOS**의 경우:
    ```bash
-   git clone https://github.com/m-ill/aiagent.git && cd aiexeauto/my-docker-app && docker build --platform linux/x86_64 -t my-node-ubuntu .
+   git clone https://github.com/m-ill/aiagent.git && cd aiagent/my-docker-app && docker build --platform linux/x86_64 -t my-node-ubuntu .
    ```
 
    **Windows**의 경우 윈도우 검색창에서 "PowerShell"을 검색하여 관리자 권한으로 실행 후 아래 명령어를 실행합니다:
