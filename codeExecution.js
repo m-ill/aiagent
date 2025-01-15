@@ -75,7 +75,7 @@ export async function runCode(page, code, requiredPackageNames) {
             {
                 const fs = require('fs');
                 const path = require('path');
-                const prefixName = 'AIEXE-data-handling-';
+                const prefixName = 'AIAGENT-data-handling-';
                 const tempFiles = fs.readdirSync('.');
                 for (const file of tempFiles) {
                     if (file.startsWith(prefixName)) {
@@ -88,8 +88,8 @@ export async function runCode(page, code, requiredPackageNames) {
             console.error(err.name+'::: '+err.message);
             process.exit(1);
         }`;
-        await window._electrons.mount('AIEXE-data-handling-operation.js', operation);
-        return await window._electrons.spawn('node', ['AIEXE-data-handling-operation.js']);
+        await window._electrons.mount('AIAGENT-data-handling-operation.js', operation);
+        return await window._electrons.spawn('node', ['AIAGENT-data-handling-operation.js']);
     }, code, requiredPackageNames);
     return result;
 }
