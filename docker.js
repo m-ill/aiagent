@@ -168,12 +168,12 @@ export async function importToDocker(containerId, workDir, inputDir) {
 }
 
 export async function exportFromDocker(containerId, workDir, outputDir) {
-    const prefixName = 'AIEXE-data-handling-';
+    const prefixName = 'AIAGENT-data-handling-';
     const removeList = [
         'node_modules', '.git', '.vscode',
-        'AIEXE-data-handling-tmpfile.tar',
-        'AIEXE-data-handling-exportData.js',
-        'AIEXE-data-handling-operation.js',
+        'AIAGENT-data-handling-tmpfile.tar',
+        'AIAGENT-data-handling-exportData.js',
+        'AIAGENT-data-handling-operation.js',
         'package-lock.json', 'package.json'
     ];
 
@@ -237,7 +237,7 @@ export async function installPythonModules(containerId, workDir, moduleName) {
 export async function runPythonCode(containerId, workDir, code, requiredPackageNames = [], streamGetter = null) {
     for (const packageName of requiredPackageNames) await installPythonModules(containerId, workDir, packageName);
     const tmpPyFile = getAppPath('.code_' + Math.random() + '.py');
-    const pyFileName = 'AIEXE-data-handling-operation.py';
+    const pyFileName = 'AIAGENT-data-handling-operation.py';
 
     code = [
         `import os`,
@@ -263,7 +263,7 @@ export async function runPythonCode(containerId, workDir, code, requiredPackageN
 export async function runNodeJSCode(containerId, workDir, code, requiredPackageNames = [], streamGetter = null) {
     for (const packageName of requiredPackageNames) await installNodeModules(containerId, workDir, packageName);
     const tmpJsFile = getAppPath('.code_' + Math.random() + '.js');
-    const jsFileName = 'AIEXE-data-handling-operation.js';
+    const jsFileName = 'AIAGENT-data-handling-operation.js';
 
     code = [
         `{`,
