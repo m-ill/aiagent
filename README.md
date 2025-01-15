@@ -66,7 +66,7 @@
    1. Spotlight(⌘ + Space)에서 "터미널"을 검색하여 실행합니다
    2. 터미널 창이 열리면 아래 명령어를 복사해서 붙여넣고 Enter를 누릅니다:
    ```bash
-   sudo npm install -g aiagent
+   sudo npm install -g https://github.com/m-ill/aiagent.git
    ```
    3. 관리자 암호를 입력하라는 메시지가 나타나면 Mac의 로그인 비밀번호를 입력합니다
 
