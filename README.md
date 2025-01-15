@@ -59,7 +59,7 @@
    1. 윈도우 검색창에서 "PowerShell"을 검색하여 실행합니다
    2. PowerShell 창이 열리면 아래 명령어를 복사해서 붙여넣고 Enter를 누릅니다:
    ```powershell
-   npm install -g aiagent
+   npm install -g https://github.com/m-ill/aiagent.git
    ```
 
    **macOS**의 경우:
