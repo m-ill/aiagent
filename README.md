@@ -1,6 +1,6 @@
-# aiexeauto
+# aiagent
 
-**aiexeauto**는 자율적으로 사고하고 행동하는 인공지능 에이전트입니다. 사람의 자연어 명령을 이해하고 스스로 판단하여 컴퓨터 작업을 수행하는 혁신적인 CLI 도구입니다. 복잡한 작업도 AI 에이전트가 상황을 분석하고 최적의 방법을 찾아 자동으로 처리합니다.
+**aiagent**는 자율적으로 사고하고 행동하는 인공지능 에이전트입니다. 사람의 자연어 명령을 이해하고 스스로 판단하여 컴퓨터 작업을 수행하는 혁신적인 CLI 도구입니다. 복잡한 작업도 AI 에이전트가 상황을 분석하고 최적의 방법을 찾아 자동으로 처리합니다.
 
 ## 주요 기능
 
@@ -53,26 +53,26 @@
    # End
    ```
 
-4. **aiexeauto 설치**
+4. **aiagent 설치**
 
    **Windows**의 경우:
    1. 윈도우 검색창에서 "PowerShell"을 검색하여 실행합니다
    2. PowerShell 창이 열리면 아래 명령어를 복사해서 붙여넣고 Enter를 누릅니다:
    ```powershell
-   npm install -g aiexeauto
+   npm install -g aiagent
    ```
 
    **macOS**의 경우:
    1. Spotlight(⌘ + Space)에서 "터미널"을 검색하여 실행합니다
    2. 터미널 창이 열리면 아래 명령어를 복사해서 붙여넣고 Enter를 누릅니다:
    ```bash
-   sudo npm install -g aiexeauto
+   sudo npm install -g aiagent
    ```
    3. 관리자 암호를 입력하라는 메시지가 나타나면 Mac의 로그인 비밀번호를 입력합니다
 
 ## 기본 설정
 
-**aiexeauto**는 Anthropic의 Claude AI 모델을 사용합니다.
+**aiagent**는 Anthropic의 Claude AI 모델을 사용합니다.
 
 ### API 키 발급
 
@@ -108,7 +108,7 @@ aiexeauto config dockerWorkDir "/home/ubuntu/work" # Docker 작업 디렉토리
 ### 기본 명령어 구조
 
 ```bash
-aiexeauto "<작업_설명>" <입력_경로> <출력_경로>
+aiagent "<작업_설명>" <입력_경로> <출력_경로>
 ```
 
 - **작업_설명**: 수행할 작업을 자연어로 설명 (또는 설명이 담긴 텍스트 파일 경로)
@@ -132,7 +132,7 @@ aiexeauto "<작업_설명>" <입력_경로> <출력_경로>
 2. **텍스트 파일로 명령어 입력**
    ```bash
    # task.txt 파일에 작업 설명을 작성
-   aiexeauto "task.txt" ./data ./output
+   aiagent "task.txt" ./data ./output
    ```
 
 ### 작업 설명 작성 팁
