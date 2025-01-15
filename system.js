@@ -15,9 +15,9 @@ export function getHomePath(itemPath) {
     return path.join(getHomeDir(), itemPath);
 }
 export function getConfigFilePath() {
-    const folder = getHomePath('.aiexeauto');
+    const folder = getHomePath('.aiagent');
     if (!fs.existsSync(folder)) fs.mkdirSync(folder, { recursive: true });
-    return path.join(folder, '.aiexeauto.cokac.config.json');
+    return path.join(folder, '.aiagent.cokac.config.json');
 }
 
 export async function setConfiguration(key, value) {
@@ -78,7 +78,7 @@ export function getCodePath(itemPath) {
     return getAbsolutePath(path.join(__dirname, itemPath));
 }
 export function getAppPath(itemPath) {
-    const workspace = getHomePath('.aiexeauto/workspace');
+    const workspace = getHomePath('.aiagent/workspace');
     if (!fs.existsSync(workspace)) fs.mkdirSync(workspace, { recursive: true });
     return getAbsolutePath(path.join(workspace, itemPath));
 }
@@ -166,114 +166,6 @@ export async function prepareOutputDir(outputDir, overwrite, doNotCreate = false
     }
 }
 
-// export function convertJsonToResponseFormat(struct) {
-//     const getType = (value) => {
-//         if (value === null) return "null";
-//         if (Array.isArray(value)) return "array";
-//         if (typeof value === "boolean") return "boolean";
-//         if (typeof value === "number") return Number.isInteger(value) ? "integer" : "number";
-//         if (typeof value === "string") return "string";
-//         if (typeof value === "object") return "object";
-//         return "unknown";
-//     };
-
-//     const generateSchema = (data) => {
-//         const dataType = getType(data);
-
-//         if (dataType === "object") {
-//             const properties = {};
-//             const required = [];
-//             for (const key in data) {
-//                 if (data.hasOwnProperty(key)) {
-//                     properties[key] = generateSchema(data[key]);
-//                     required.push(key);
-//                 }
-//             }
-//             return {
-//                 type: "object",
-//                 properties: properties,
-//                 required: required
-//             };
-//         } else if (dataType === "array") {
-//             if (data.length === 0) {
-//                 return { type: "array", items: {} };
-//             }
-//             const itemSchemas = data.map(item => generateSchema(item));
-//             const firstItemSchemaStr = JSON.stringify(itemSchemas[0]);
-//             const allSame = itemSchemas.every(
-//                 itemSchema => JSON.stringify(itemSchema) === firstItemSchemaStr
-//             );
-//             return {
-//                 type: "array",
-//                 items: allSame ? itemSchemas[0] : {}
-//             };
-//         } else {
-//             return { type: dataType };
-//         }
-//     };
-
-//     const schema = generateSchema(struct);
-//     schema["$schema"] = "http://json-schema.org/draft-07/schema#";
-//     schema["additionalProperties"] = false;
-
-//     return {
-//         type: "json_schema",
-//         json_schema: {
-//             name: "response",
-//             schema: schema,
-//             strict: true
-//         }
-//     };
-// }
-
-// // 함수 호출 예시
-// // console.log(convertJsonToResponseFormat({ result: true }));
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 export function convertJsonToResponseFormat(struct, descriptions = {}) {
     const getType = (value) => {
@@ -344,6 +236,3 @@ export function convertJsonToResponseFormat(struct, descriptions = {}) {
         }
     };
 }
-
-// 함수 호출 예시
-// console.log(convertJsonToResponseFormat({ result: true }, { result: "description" }));
