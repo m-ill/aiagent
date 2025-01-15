@@ -44,7 +44,8 @@
    cd my-docker-app
 
    # Dockerfile 다운로드
-   Invoke-WebRequest -Uri "https://raw.githubusercontent.com/kstost/aiexeauto/refs/heads/main/my-docker-app/Dockerfile" -OutFile "Dockerfile"
+   Invoke-WebRequest -Uri "https://raw.githubusercontent.com/m-ill/aiagent/main/my-docker-app/Dockerfile" -OutFile "Dockerfile"
+
 
    # Docker 이미지 빌드
    docker build --platform linux/x86_64 -t my-node-ubuntu .
